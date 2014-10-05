@@ -1,0 +1,31 @@
+<h1>Listing simple_articles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Short description</th>
+      <th>Full description</th>
+      <th>Published</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @simple_articles.each do |simple_article| %>
+      <tr>
+        <td><%= simple_article.name %></td>
+        <td><%= simple_article.short_description %></td>
+        <td><%= simple_article.full_description %></td>
+        <td><%= simple_article.published %></td>
+        <td><%= link_to 'Show', simple_article %></td>
+        <td><%= link_to 'Edit', edit_simple_article_path(simple_article) %></td>
+        <td><%= link_to 'Destroy', simple_article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Simple article', new_simple_article_path %>
